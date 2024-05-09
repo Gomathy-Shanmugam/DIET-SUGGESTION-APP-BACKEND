@@ -6,6 +6,7 @@ const track = async (req, res) => {
   try {
     let data = await trackingModel.create(trackData);
     res.status(201).send({ message: "Food Added" });
+    
   } catch (error) {
     console.log(error);
     res.status(500).send({ message: "Some problem in getting food" });
@@ -25,6 +26,7 @@ const foodeaten = async (req, res) => {
       .populate("foodId");
 
     res.send(foods);
+    
   } catch (error) {
     console.log(error);
     res.status(500).send({ message: "Some problem in getting food" });
