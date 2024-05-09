@@ -10,4 +10,5 @@ router.get("/getAllFood",verifyToken,foodModel.getAllFood)
 router.delete("/delete/:id",foodModel.deletefood)
 router.get("/:name",verifyToken,foodModel.foodname)
 
+
 export default router
