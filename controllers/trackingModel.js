@@ -17,8 +17,8 @@ const foodeaten = async (req, res) => {
   let userid = req.params.userid;
   let date = new Date(req.params.date);
   let strDate =
-    date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
-
+  (date.getMonth() + 1) + "/" +  date.getDate()    + "/" + date.getFullYear();
+console.log(strDate)
   try {
     let foods = await trackingModel
       .find({ userId: userid, eatenDate: strDate })
@@ -26,7 +26,7 @@ const foodeaten = async (req, res) => {
       .populate("foodId");
 
     res.send(foods);
-    
+    console.log(foods)
   } catch (error) {
     console.log(error);
     res.status(500).send({ message: "Some problem in getting food" });
